@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Avella Jewelry | @_avellajewelry</title>
+<style>
+  :root{--burgundy:#581823;--burgundy-dark:#3b0e16;--ivory:#FAF7F2;--cream:#F2ECE1;--gold:#C5A059;--text:#23191B;--muted:#6C5B5E;--border:#E4D9C8}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--ivory);color:var(--text);line-height:1.5}
+  .topbar{background:var(--burgundy-dark);color:#fff;font-size:12px;padding:8px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+  header{position:sticky;top:0;z-index:20;background:rgba(250,247,242,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .nav{max-width:1120px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column}
+  .brand strong{font-size:20px;letter-spacing:2px;color:var(--burgundy)}
+  .brand span{font-size:11px;color:var(--muted)}
+  .actions{display:flex;gap:8px;flex-wrap:wrap}
+  button{cursor:pointer;border:none;border-radius:10px;padding:10px 14px;font-weight:600;font-size:13px;transition:.15s}
+  .btn-primary{background:var(--burgundy);color:#fff}
+  .btn-gold{background:var(--gold);color:#1f1609}
+  .btn-outline{background:#fff;color:var(--burgundy);border:1px solid var(--border)}
+  .btn-danger{background:#fee2e2;color:#991b1b}
+  .hero{max-width:1120px;margin:18px auto;padding:28px 20px;background:linear-gradient(135deg,var(--burgundy),var(--burgundy-dark));color:#fff;border-radius:18px}
+  .hero h1{font-size:28px;margin-bottom:8px}
+  .hero p{color:#f3e7e9;max-width:640px;font-size:14px}
+  .wrap{max-width:1120px;margin:0 auto;padding:12px 18px 48px}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .chip{padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--border);color:var(--text);font-size:13px}
+  .chip.active{background:var(--burgundy);color:#fff;border-color:var(--burgundy)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .card img{width:100%;height:210px;object-fit:cover;background:var(--cream)}
+  .card-body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .cat{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700}
+  .title{font-size:16px;font-weight:700}
+  .price{font-size:16px;font-weight:800;color:var(--burgundy)}
+  .stock{font-size:12px;color:var(--muted)}
+  .drawer,.panel{max-width:1120px;margin:20px auto;background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px}
+  .hidden{display:none}
+  input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;font-size:14px;background:var(--ivory);margin-top:4px}
+  .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:14px}
+  .row-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span id="announcementText">Özel bordo kutu ve kadife kese hediyeli seçki • @_avellajewelry</span>
+  <span>WhatsApp Sipariş Aktif</span>
+</div>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <strong>AVELLA JEWELRY</strong>
+      <span>@_avellajewelry • Zamansız Mücevher & Aksesuar</span>
+    </div>
+    <div class="actions">
+      <button class="btn-outline" id="toggleAdminBtn">Yönetim Paneli</button>
+      <button class="btn-gold" id="toggleCartBtn">Sepet (<span id="cartCount">0</span>)</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Her Detayda Zarafet</h1>
+  <p>Yüzük, kolye ve bileklik koleksiyonlarımızı inceleyin; seçtiğiniz ürünleri hediye notunuzla tek tıkla WhatsApp üzerinden sipariş verin.</p>
+</section>
+
+<main class="wrap">
+  <div class="filters" id="categoryBar"></div>
+  <div class="grid" id="productGrid"></div>
+</main>
+
+<section class="drawer hidden" id="cartSection">
+  <h2 style="margin-bottom:12px">Sepetiniz</h2>
+  <div id="cartItems"></div>
+  <div style="margin-top:14px">
+    <label>Hediye Notu / Özel İstek (İsteğe bağlı)</label>
+    <input type="text" id="giftNoteInput" placeholder="Örn: Doğum günü notu eklensin..." />
+  </div>
+  <div class="actions" style="margin-top:14px">
+    <button class="btn-primary" id="sendWhatsAppBtn">WhatsApp ile Sipariş Gönder</button>
+    <button class="btn-outline" id="clearCartBtn">Sepeti Temizle</button>
+  </div>
+</section>
+
+<section class="panel hidden" id="adminSection">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+    <h2>Yönetim Paneli</h2>
+    <button class="btn-outline" id="lockAdminBtn">Paneli Gizle</button>
+  </div>
+  <div id="loginBox">
+    <p style="margin-bottom:10px;font-size:14px;color:var(--muted)">Yönetim paneli şifrenizi girin.</p>
+    <div style="display:flex;gap:8px;max-width:360px">
+      <input type="password" id="adminPassInput" placeholder="Şifre girin" />
+      <button class="btn-primary" id="loginBtn">Giriş</button>
+    </div>
+  </div>
+  <div id="adminContent" class="hidden">
+    <div style="margin-bottom:14px">
+      <label>Üst Duyuru Bandı Metni</label>
+      <div style="display:flex;gap:8px;margin-top:4px">
+        <input type="text" id="announcementInput" />
+        <button class="btn-outline" id="saveAnnouncementBtn">Kaydet</button>
+      </div>
+    </div>
+    <h3 style="margin-bottom:8px">Yeni Ürün Ekle</h3>
+    <div class="form-grid">
+      <div><label>Ürün Adı</label><input type="text" id="pName" placeholder="Örn: İnce Altın Yüzük" /></div>
+      <div>
+        <label>Kategori</label>
+        <select id="pCat"><option value="Yüzük">Yüzük</option><option value="Kolye">Kolye</option><option value="Bileklik">Bileklik</option></select>
+      </div>
+      <div><label>Fiyat (TL)</label><input type="number" id="pPrice" placeholder="750" /></div>
+      <div><label>Stok Adedi</label><input type="number" id="pStock" placeholder="10" /></div>
+      <div style="grid-column:1/-1"><label>Görsel Linki (İsteğe bağlı)</label><input type="text" id="pImg" placeholder="https://..." /></div>
+    </div>
+    <button class="btn-primary" id="addProductBtn">Ürünü Ekle</button>
+    <h3 style="margin:20px 0 8px">Mevcut Ürünler</h3>
+    <div id="adminProductList"></div>
+  </div>
+</section>
+
+<script>
+const WHATSAPP_NUMBER = "905465854620";
+const DEFAULT_PRODUCTS = [
+  {id:1,name:"Klasik Dalga Yüzük",cat:"Yüzük",price:650,stock:8,img:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600"},
+  {id:2,name:"Minimalist İnce Kolye",cat:"Kolye",price:790,stock:6,img:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600"},
+  {id:3,name:"Zarif Zincir Bileklik",cat:"Bileklik",price:590,stock:10,img:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600"}
+];
+let state = JSON.parse(localStorage.getItem("avella_state_v1") || "null") || {
+  products: DEFAULT_PRODUCTS,
+  cart: [],
+  selectedCat: "Tümü",
+  announcement: "Özel bordo kutu ve kadife kese hediyeli seçki • @_avellajewelry",
+  unlocked: false
+};
+function save(){ localStorage.setItem("avella_state_v1", JSON.stringify(state)); }
+function renderFilters(){
+  const cats = ["Tümü","Yüzük","Kolye","Bileklik"];
+  document.getElementById("categoryBar").innerHTML = cats.map(c =>
+    `<button class="chip ${state.selectedCat===c?'active':''}" onclick="setCat('${c}')">${c}</button>`
+  ).join("");
+}
+function setCat(c){ state.selectedCat=c; save(); render(); }
+function renderProducts(){
+  const list = state.selectedCat==="Tümü" ? state.products : state.products.filter(p=>p.cat===state.selectedCat);
+  document.getElementById("productGrid").innerHTML = list.map(p => `
+    <div class="card">
+      <img src="${p.img || 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600'}" alt="${p.name}" />
+      <div class="card-body">
+        <span class="cat">${p.cat}</span>
+        <div class="title">${p.name}</div>
+        <div class="price">${Number(p.price).toLocaleString("tr-TR")} TL</div>
+        <div class="stock">${p.stock > 0 ? 'Stokta ' + p.stock + ' adet' : 'Tükendi'}</div>
+        <button class="btn-primary" style="margin-top:auto" ${p.stock<=0?'disabled':''} onclick="addToCart(${p.id})">${p.stock>0?'Sepete Ekle':'Stokta Yok'}</button>
+      </div>
+    </div>
+  `).join("") || "<p>Bu kategoride henüz ürün yok.</p>";
+}
+function addToCart(id){
+  const p = state.products.find(x=>x.id===id);
+  if(!p || p.stock<=0) return;
+  const found = state.cart.find(x=>x.id===id);
+  if(found){ if(found.qty < p.stock) found.qty++; }
+  else state.cart.push({id:p.id,name:p.name,price:p.price,qty:1});
+  save(); renderCart();
+}
+function renderCart(){
+  const totalQty = state.cart.reduce((a,b)=>a+b.qty,0);
+  document.getElementById("cartCount").textContent = totalQty;
+  document.getElementById("cartItems").innerHTML = state.cart.length ? state.cart.map(item => `
+    <div class="row-item">
+      <span><strong>${item.name}</strong> × ${item.qty}</span>
+      <span>${(item.price*item.qty).toLocaleString("tr-TR")} TL</span>
+    </div>
+  `).join("") : "<p style='color:var(--muted)'>Sepetiniz şu an boş.</p>";
+}
+function renderAdmin(){
+  document.getElementById("loginBox").classList.toggle("hidden", state.unlocked);
+  document.getElementById("adminContent").classList.toggle("hidden", !state.unlocked);
+  document.getElementById("announcementInput").value = state.announcement;
+  document.getElementById("adminProductList").innerHTML = state.products.map(p => `
+    <div class="row-item">
+      <div><strong>${p.name}</strong> (${p.cat}) — ${p.price} TL — Stok: ${p.stock}</div>
+      <div class="actions">
+        <button class="btn-outline" onclick="changeStock(${p.id},1)">+1</button>
+        <button class="btn-outline" onclick="changeStock(${p.id},-1)">-1</button>
+        <button class="btn-danger" onclick="deleteProduct(${p.id})">Sil</button>
+      </div>
+    </div>
+  `).join("");
+}
+function changeStock(id,d){
+  const p = state.products.find(x=>x.id===id);
+  if(!p) return;
+  p.stock = Math.max(0, p.stock + d);
+  save(); render();
+}
+function deleteProduct(id){
+  state.products = state.products.filter(x=>x.id!==id);
+  save(); render();
+}
+function render(){
+  document.getElementById("announcementText").textContent = state.announcement;
+  renderFilters(); renderProducts(); renderCart(); renderAdmin();
+}
+document.getElementById("toggleCartBtn").onclick = () => document.getElementById("cartSection").classList.toggle("hidden");
+document.getElementById("toggleAdminBtn").onclick = () => document.getElementById("adminSection").classList.toggle("hidden");
+document.getElementById("lockAdminBtn").onclick = () => { state.unlocked=false; save(); renderAdmin(); document.getElementById("adminSection").classList.add("hidden"); };
+document.getElementById("loginBtn").onclick = () => {
+  if(document.getElementById("adminPassInput").value === "201126"){ state.unlocked=true; save(); renderAdmin(); }
+  else alert("Şifre hatalı.");
+};
+document.getElementById("saveAnnouncementBtn").onclick = () => { state.announcement = document.getElementById("announcementInput").value; save(); render(); };
+document.getElementById("addProductBtn").onclick = () => {
+  const name = document.getElementById("pName").value.trim();
+  const cat = document.getElementById("pCat").value;
+  const price = Number(document.getElementById("pPrice").value);
+  const stock = Number(document.getElementById("pStock").value);
+  const img = document.getElementById("pImg").value.trim();
+  if(!name || !price) return alert("Ürün adı ve fiyat girin.");
+  state.products.push({id:Date.now(),name,cat,price,stock:isNaN(stock)?1:stock,img});
+  document.getElementById("pName").value=""; document.getElementById("pPrice").value=""; document.getElementById("pStock").value=""; document.getElementById("pImg").value="";
+  save(); render();
+};
+document.getElementById("clearCartBtn").onclick = () => { state.cart=[]; save(); renderCart(); };
+document.getElementById("sendWhatsAppBtn").onclick = () => {
+  if(!state.cart.length) return alert("Sepetiniz boş.");
+  const note = document.getElementById("giftNoteInput").value.trim();
+  const lines = state.cart.map(i=>`- ${i.name} (${i.qty} adet): ${i.price*i.qty} TL`).join("\n");
+  const total = state.cart.reduce((a,b)=>a+b.price*b.qty,0);
+  const msg = `Merhaba Avella Jewelry (@_avellajewelry), sipariş vermek istiyorum:\n${lines}\nToplam: ${total} TL${note ? "\nNot: " + note : ""}`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+};
+render();
+</script>
+</body>
+</html>
