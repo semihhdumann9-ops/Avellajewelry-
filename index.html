@@ -23,16 +23,8 @@
       --shadow: 0 18px 45px rgba(30, 15, 9, 0.12);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--cream);
@@ -40,16 +32,9 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
+    body.gate-locked { overflow: hidden; }
+    body.gate-locked #storefront-shell { display: none !important; }
 
-    body.gate-locked {
-      overflow: hidden;
-    }
-
-    body.gate-locked #storefront-shell {
-      display: none !important;
-    }
-
-    /* ==================== TAM EKRAN AÇILIŞ KAPISI ==================== */
     #intro-gate {
       position: fixed;
       inset: 0;
@@ -65,14 +50,12 @@
       text-align: center;
       transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.65s;
     }
-
     #intro-gate.gate-leaving {
       opacity: 0;
       transform: scale(1.03);
       visibility: hidden;
       pointer-events: none;
     }
-
     .gate-inner {
       max-width: 560px;
       width: 100%;
@@ -81,44 +64,17 @@
       align-items: center;
       animation: gateFadeUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
-
     @keyframes gateFadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(22px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes starPulse {
-      0%, 100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 0.92;
-      }
-      50% {
-        transform: scale(1.14) rotate(8deg);
-        opacity: 1;
-      }
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.92; }
+      50% { transform: scale(1.14) rotate(8deg); opacity: 1; }
     }
 
-    .brand-mark {
-      position: relative;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      user-select: none;
-    }
-
-    .brand-mark-main {
-      position: relative;
-      display: inline-flex;
-      align-items: flex-end;
-      line-height: 1;
-    }
-
+    .brand-mark { position: relative; display: inline-flex; flex-direction: column; align-items: center; user-select: none; }
+    .brand-mark-main { position: relative; display: inline-flex; align-items: flex-end; line-height: 1; }
     .brand-avella {
       font-family: 'Alex Brush', 'Great Vibes', cursive;
       font-size: clamp(4.6rem, 15vw, 7.2rem);
@@ -128,7 +84,6 @@
       line-height: 0.88;
       text-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
     }
-
     .brand-sparkle {
       position: relative;
       top: -42px;
@@ -138,7 +93,6 @@
       flex-shrink: 0;
       animation: starPulse 3.4s ease-in-out infinite;
     }
-
     .brand-jewelry {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
@@ -149,7 +103,6 @@
       margin-top: -6px;
       margin-left: 72px;
     }
-
     .gate-tagline {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
@@ -158,7 +111,6 @@
       margin-top: 22px;
       letter-spacing: 0.02em;
     }
-
     .gate-btn {
       margin-top: 34px;
       background: var(--gold-bright);
@@ -174,31 +126,12 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
       transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
     }
+    .gate-btn:hover { background: #fff2d6; transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45); }
 
-    .gate-btn:hover {
-      background: #fff2d6;
-      transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-    }
-
-    .gate-btn:active {
-      transform: translateY(0);
-    }
-
-    /* ==================== ANA VİTRİN ==================== */
-    #storefront-shell {
-      animation: pageReveal 0.7s ease both;
-    }
-
+    #storefront-shell { animation: pageReveal 0.7s ease both; }
     @keyframes pageReveal {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .announcement-bar {
@@ -211,7 +144,6 @@
       text-transform: uppercase;
       font-weight: 500;
     }
-
     header.site-header {
       position: sticky;
       top: 0;
@@ -220,7 +152,6 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
     .header-inner {
       max-width: 1180px;
       margin: 0 auto;
@@ -230,18 +161,8 @@
       align-items: center;
       gap: 12px;
     }
-
-    .header-left,
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .header-right {
-      justify-content: flex-end;
-    }
-
+    .header-left, .header-right { display: flex; align-items: center; gap: 14px; }
+    .header-right { justify-content: flex-end; }
     .icon-btn {
       background: transparent;
       border: 1px solid transparent;
@@ -257,33 +178,10 @@
       text-decoration: none;
       transition: background-color 0.2s ease, border-color 0.2s ease;
     }
-
-    .icon-btn:hover {
-      background: var(--sand);
-      border-color: var(--border);
-    }
-
-    .header-brand .brand-avella {
-      font-size: 2.45rem;
-      color: var(--espresso);
-      text-shadow: none;
-      line-height: 0.85;
-    }
-
-    .header-brand .brand-sparkle {
-      top: -14px;
-      margin-left: -2px;
-      width: 13px;
-      height: 13px;
-      animation: none;
-    }
-
-    .header-brand .brand-jewelry {
-      font-size: 0.78rem;
-      color: var(--espresso-soft);
-      margin-top: -2px;
-      margin-left: 24px;
-    }
+    .icon-btn:hover { background: var(--sand); border-color: var(--border); }
+    .header-brand .brand-avella { font-size: 2.45rem; color: var(--espresso); text-shadow: none; line-height: 0.85; }
+    .header-brand .brand-sparkle { top: -14px; margin-left: -2px; width: 13px; height: 13px; animation: none; }
+    .header-brand .brand-jewelry { font-size: 0.78rem; color: var(--espresso-soft); margin-top: -2px; margin-left: 24px; }
 
     .cart-badge {
       background: var(--espresso);
@@ -299,755 +197,922 @@
       padding: 0 5px;
     }
 
-    /* Drawer Menü */
-    .nav-drawer-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(23, 11, 6, 0.52);
-      z-index: 400;
-      display: none;
-      justify-content: flex-start;
+    .nav-drawer-backdrop { position: fixed; inset: 0; background: rgba(23, 11, 6, 0.52); z-index: 400; display: none; justify-content: flex-start; }
+    .nav-drawer-backdrop.open { display: flex; }
+    .nav-drawer { width: min(320px, 84vw); height: 100%; background: var(--cream); padding: 28px 24px; display: flex; flex-direction: column; gap: 18px; box-shadow: var(--shadow); }
+    .nav-drawer a, .nav-drawer button.drawer-link {
+      color: var(--espresso); text-decoration: none; background: none; border: none; text-align: left;
+      font-size: 1rem; font-weight: 500; padding: 8px 0; border-bottom: 1px solid var(--border); cursor: pointer; font-family: inherit;
     }
 
-    .nav-drawer-backdrop.open {
-      display: flex;
-    }
-
-    .nav-drawer {
-      width: min(320px, 84vw);
-      height: 100%;
-      background: var(--cream);
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .nav-drawer a,
-    .nav-drawer button.drawer-link {
-      color: var(--espresso);
-      text-decoration: none;
-      background: none;
-      border: none;
-      text-align: left;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    /* Hero */
-    .hero {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 28px 20px 36px;
-      text-align: center;
-    }
-
-    .hero-frame {
-      border-radius: 18px;
-      overflow: hidden;
-      background: var(--sand);
-      box-shadow: var(--shadow);
-      aspect-ratio: 4 / 3;
-      max-height: 460px;
-      margin: 0 auto 24px;
-      position: relative;
-    }
-
-    .hero-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-kicker {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .hero h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(2.2rem, 5.5vw, 3.35rem);
-      font-weight: 500;
-      line-height: 1.12;
-      color: var(--espresso);
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      max-width: 520px;
-      margin: 0 auto 22px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    .hero { max-width: 820px; margin: 0 auto; padding: 28px 20px 36px; text-align: center; }
+    .hero-frame { border-radius: 18px; overflow: hidden; background: var(--sand); box-shadow: var(--shadow); aspect-ratio: 4 / 3; max-height: 460px; margin: 0 auto 24px; position: relative; }
+    .hero-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-kicker { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.2rem, 5.5vw, 3.35rem); font-weight: 500; line-height: 1.12; color: var(--espresso); margin-bottom: 12px; }
+    .hero p { max-width: 520px; margin: 0 auto 22px; color: var(--muted); font-size: 0.95rem; }
 
     .btn-primary {
-      background: var(--espresso);
-      color: var(--gold-bright);
-      border: none;
-      padding: 13px 28px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: transform 0.2s ease, background-color 0.2s ease;
+      background: var(--espresso); color: var(--gold-bright); border: none; padding: 13px 28px; border-radius: 999px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.2s ease, background-color 0.2s ease;
     }
-
-    .btn-primary:hover {
-      background: var(--espresso-soft);
-      transform: translateY(-1px);
-    }
-
+    .btn-primary:hover { background: var(--espresso-soft); transform: translateY(-1px); }
     .btn-secondary {
-      background: transparent;
-      color: var(--espresso);
-      border: 1px solid rgba(44, 24, 16, 0.28);
-      padding: 11px 22px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-
-    .btn-secondary:hover {
-      background: var(--sand);
-    }
-
-    section.section-block {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    .section-head {
-      text-align: center;
-      margin-bottom: 26px;
-    }
-
-    .section-head h2 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 500;
-      color: var(--espresso);
-    }
-
-    .section-head p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 4px;
-    }
-
-    /* Kategoriler */
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .category-card {
-      background: var(--cream-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-      text-align: center;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .category-card:hover,
-    .category-card.active {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      border-color: var(--espresso);
-    }
-
-    .category-card img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      display: block;
-    }
-
-    .category-card .cat-title {
-      padding: 12px 10px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--espresso);
-    }
-
-    /* Ürünler */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-
-    .filter-chip {
-      background: var(--cream-card);
-      border: 1px solid var(--border);
-      color: var(--espresso);
-      padding: 7px 16px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .filter-chip.active,
-    .filter-chip:hover {
-      background: var(--espresso);
-      color: var(--gold-bright);
-      border-color: var(--espresso);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .product-card {
-      background: var(--cream-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-    }
-
-    .product-img-wrap {
-      aspect-ratio: 1 / 1;
-      background: var(--sand);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .product-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .product-body {
-      padding: 15px 16px 17px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex: 1;
-    }
-
-    .product-cat {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .product-name {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.32rem;
-      font-weight: 600;
-      color: var(--espresso);
-      line-height: 1.2;
-    }
-
-    .product-desc {
-      font-size: 0.82rem;
-      color: var(--muted);
-      flex: 1;
-    }
-
-    .product-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 6px;
-      padding-top: 10px;
-      border-top: 1px solid var(--border);
-    }
-
-    .product-price {
-      font-weight: 600;
-      font-size: 0.98rem;
-      color: var(--espresso);
-    }
-
-    .add-cart-btn {
-      background: var(--espresso);
-      color: var(--gold-bright);
-      border: none;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.74rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-
-    .add-cart-btn:hover {
-      background: var(--espresso-soft);
-    }
-
-    /* Koyu Koleksiyon Bandı */
-    .collection-banner {
-      background: linear-gradient(155deg, var(--espresso) 0%, var(--espresso-deep) 100%);
-      color: var(--cream);
-      padding: 46px 20px;
-      text-align: center;
-      margin: 18px 0;
-    }
-
-    .collection-banner .eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
-    }
-
-    .collection-banner h2 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(2rem, 4.5vw, 2.8rem);
-      font-weight: 500;
-      color: var(--gold-bright);
-      margin-bottom: 8px;
-    }
-
-    .collection-banner p {
-      color: rgba(247, 242, 234, 0.82);
-      font-size: 0.92rem;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    /* Güven Rozetleri */
-    .trust-strip {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 36px 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      text-align: center;
-    }
-
-    .trust-item {
-      background: var(--cream-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 12px;
-    }
-
-    .trust-icon {
-      font-size: 1.35rem;
-      margin-bottom: 6px;
-      color: var(--espresso);
-    }
-
-    .trust-label {
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--espresso);
-    }
-
-    /* Sizden Gelenler & Instagram */
-    .reviews-box {
-      max-width: 680px;
-      margin: 0 auto;
-      background: var(--cream-card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .reviews-box img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      display: block;
-    }
-
-    .reviews-caption {
-      padding: 18px 20px;
-      text-align: center;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.3rem;
-      color: var(--espresso);
-    }
-
-    .ig-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 780px;
-      margin: 0 auto 22px;
-    }
-
-    .ig-card {
-      aspect-ratio: 1 / 1;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--sand);
-    }
-
-    .ig-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .ig-handle-link {
-      display: block;
-      text-align: center;
-      font-weight: 600;
-      color: var(--espresso);
-      text-decoration: none;
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-    }
-
-    .ig-handle-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer.site-footer {
-      background: linear-gradient(165deg, var(--espresso) 0%, var(--espresso-deep) 100%);
-      color: var(--cream);
-      padding: 48px 20px 36px;
-      text-align: center;
-      margin-top: 28px;
-    }
-
-    footer .brand-avella {
-      font-size: 3.4rem;
-      color: var(--gold-bright);
-    }
-
-    footer .brand-sparkle {
-      top: -22px;
-      width: 18px;
-      height: 18px;
-      animation: none;
-    }
-
-    footer .brand-jewelry {
-      font-size: 1rem;
-      color: var(--gold);
-      margin-left: 40px;
-    }
-
-    .footer-tagline {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
-      font-size: 1.2rem;
-      color: rgba(235, 212, 167, 0.88);
-      margin-top: 12px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 18px;
-      margin: 24px 0 18px;
-      font-size: 0.84rem;
-    }
-
-    .footer-links a,
-    .footer-links button {
-      color: rgba(247, 242, 234, 0.86);
-      text-decoration: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 0.84rem;
-    }
-
-    .footer-links a:hover,
-    .footer-links button:hover {
-      color: var(--gold-bright);
-      text-decoration: underline;
-    }
-
-    .footer-copy {
-      font-size: 0.74rem;
-      color: rgba(247, 242, 234, 0.55);
-    }
-
-    /* ==================== SEPET ÇEKMECESİ ==================== */
-    .cart-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(23, 11, 6, 0.56);
-      z-index: 500;
-      display: none;
-      justify-content: flex-end;
-    }
-
-    .cart-backdrop.open {
-      display: flex;
-    }
-
-    .cart-drawer {
-      width: min(410px, 100vw);
-      height: 100%;
-      background: var(--cream);
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow);
-    }
-
-    .cart-header {
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .cart-header h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.55rem;
-      color: var(--espresso);
-    }
-
-    .close-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      font-size: 1.1rem;
-      color: var(--espresso);
-      cursor: pointer;
-    }
-
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-      padding: 16px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .cart-item {
-      background: var(--cream-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .cart-item img {
-      width: 60px;
-      height: 60px;
-      border-radius: 8px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
-    .cart-item-info {
-      flex: 1;
-    }
-
-    .cart-item-title {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--espresso);
-    }
-
-    .cart-item-price {
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .qty-controls {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 6px;
-    }
-
-    .qty-btn {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--cream);
-      color: var(--espresso);
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .cart-footer {
-      padding: 18px 20px;
-      border-top: 1px solid var(--border);
-      background: var(--cream-card);
-    }
-
-    .customer-note-input {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--cream);
-      font-family: inherit;
-      font-size: 0.84rem;
-      color: var(--ink);
-      margin-bottom: 12px;
-    }
-
-    .cart-total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: var(--espresso);
-      margin-bottom: 14px;
-    }
-
-    .whatsapp-btn {
-      width: 100%;
-      background: #1f5e3b;
-      color: #ffffff;
-      border: none;
-      padding: 14px 18px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .whatsapp-btn:hover {
-      background: #17492d;
-    }
-
-    /* ==================== YÖNETİM PANELİ MODALI ==================== */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(23, 11, 6, 0.65);
-      z-index: 600;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .modal-backdrop.open {
-      display: flex;
-    }
-
-    .modal-card {
-      background: var(--cream);
-      border-radius: 20px;
-      width: min(760px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .modal-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .modal-top h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.65rem;
-      color: var(--espresso);
-    }
-
-    .admin-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .admin-tab {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--cream-card);
-      color: var(--espresso);
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .admin-tab.active {
-      background: var(--espresso);
-      color: var(--gold-bright);
-      border-color: var(--espresso);
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 5px
+      background: transparent; color: var(--espresso); border: 1px solid rgba(44, 24, 16, 0.28); padding: 11px 22px;
+      border-radius: 999px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background-color 0.2s ease;
+    }
+    .btn-secondary:hover { background: var(--sand); }
+
+    section.section-block { max-width: 1120px; margin: 0 auto; padding: 40px 20px; }
+    .section-head { text-align: center; margin-bottom: 26px; }
+    .section-head h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 500; color: var(--espresso); }
+    .section-head p { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+
+    .category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 820px; margin: 0 auto; }
+    .category-card { background: var(--cream-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; text-align: center; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+    .category-card:hover, .category-card.active { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--espresso); }
+    .category-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+    .category-card .cat-title { padding: 12px 10px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--espresso); }
+
+    .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 24px; }
+    .filter-chip { background: var(--cream-card); border: 1px solid var(--border); color: var(--espresso); padding: 7px 16px; border-radius: 999px; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
+    .filter-chip.active, .filter-chip:hover { background: var(--espresso); color: var(--gold-bright); border-color: var(--espresso); }
+
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+    .product-card { background: var(--cream-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .product-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .product-img-wrap { aspect-ratio: 1 / 1; background: var(--sand); overflow: hidden; position: relative; }
+    .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .product-body { padding: 15px 16px 17px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .product-cat { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); font-weight: 600; }
+    .product-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.32rem; font-weight: 600; color: var(--espresso); line-height: 1.2; }
+    .product-desc { font-size: 0.82rem; color: var(--muted); flex: 1; }
+    .product-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .product-price { font-weight: 600; font-size: 0.98rem; color: var(--espresso); }
+    .add-cart-btn { background: var(--espresso); color: var(--gold-bright); border: none; padding: 8px 14px; border-radius: 999px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; cursor: pointer; transition: background-color 0.2s ease; }
+    .add-cart-btn:hover { background: var(--espresso-soft); }
+
+    .collection-banner { background: linear-gradient(155deg, var(--espresso) 0%, var(--espresso-deep) 100%); color: var(--cream); padding: 46px 20px; text-align: center; margin: 18px 0; }
+    .collection-banner .eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .collection-banner h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2rem, 4.5vw, 2.8rem); font-weight: 500; color: var(--gold-bright); margin-bottom: 8px; }
+    .collection-banner p { color: rgba(247, 242, 234, 0.82); font-size: 0.92rem; max-width: 520px; margin: 0 auto; }
+
+    .trust-strip { max-width: 900px; margin: 0 auto; padding: 36px 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; text-align: center; }
+    .trust-item { background: var(--cream-card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 12px; }
+    .trust-icon { font-size: 1.35rem; margin-bottom: 6px; color: var(--espresso); }
+    .trust-label { font-size: 0.84rem; font-weight: 600; color: var(--espresso); }
+
+    .reviews-box { max-width: 680px; margin: 0 auto; background: var(--cream-card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
+    .reviews-box img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+    .reviews-caption { padding: 18px 20px; text-align: center; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.3rem; color: var(--espresso); }
+
+    .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 780px; margin: 0 auto 22px; }
+    .ig-card { aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--sand); }
+    .ig-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ig-handle-link { display: block; text-align: center; font-weight: 600; color: var(--espresso); text-decoration: none; font-size: 1rem; letter-spacing: 0.04em; }
+    .ig-handle-link:hover { text-decoration: underline; }
+
+    footer.site-footer { background: linear-gradient(165deg, var(--espresso) 0%, var(--espresso-deep) 100%); color: var(--cream); padding: 48px 20px 36px; text-align: center; margin-top: 28px; }
+    footer .brand-avella { font-size: 3.4rem; color: var(--gold-bright); }
+    footer .brand-sparkle { top: -22px; width: 18px; height: 18px; animation: none; }
+    footer .brand-jewelry { font-size: 1rem; color: var(--gold); margin-left: 40px; }
+    .footer-tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 1.2rem; color: rgba(235, 212, 167, 0.88); margin-top: 12px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 24px 0 18px; font-size: 0.84rem; }
+    .footer-links a, .footer-links button { color: rgba(247, 242, 234, 0.86); text-decoration: none; background: none; border: none; cursor: pointer; font-family: inherit; font-size: 0.84rem; }
+    .footer-links a:hover, .footer-links button:hover { color: var(--gold-bright); text-decoration: underline; }
+    .footer-copy { font-size: 0.74rem; color: rgba(247, 242, 234, 0.55); }
+
+    .cart-backdrop { position: fixed; inset: 0; background: rgba(23, 11, 6, 0.56); z-index: 500; display: none; justify-content: flex-end; }
+    .cart-backdrop.open { display: flex; }
+    .cart-drawer { width: min(410px, 100vw); height: 100%; background: var(--cream); display: flex; flex-direction: column; box-shadow: var(--shadow); }
+    .cart-header { padding: 18px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .cart-header h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.55rem; color: var(--espresso); }
+    .close-btn { background: transparent; border: 1px solid var(--border); width: 34px; height: 34px; border-radius: 50%; font-size: 1.1rem; color: var(--espresso); cursor: pointer; }
+    .cart-items { flex: 1; overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
+    .cart-item { background: var(--cream-card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; display: flex; gap: 12px; align-items: center; }
+    .cart-item img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+    .cart-item-info { flex: 1; }
+    .cart-item-title { font-weight: 600; font-size: 0.9rem; color: var(--espresso); }
+    .cart-item-price { font-size: 0.82rem; color: var(--muted); }
+    .qty-controls { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; }
+    .qty-btn { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--border); background: var(--cream); color: var(--espresso); font-weight: 600; cursor: pointer; }
+    .cart-footer { padding: 18px 20px; border-top: 1px solid var(--border); background: var(--cream-card); }
+    .customer-note-input { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--cream); font-family: inherit; font-size: 0.84rem; color: var(--ink); margin-bottom: 12px; }
+    .cart-total-row { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1.05rem; color: var(--espresso); margin-bottom: 14px; }
+    .whatsapp-btn { width: 100%; background: #1f5e3b; color: #ffffff; border: none; padding: 14px 18px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .whatsapp-btn:hover { background: #17492d; }
+
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(23, 11, 6, 0.65); z-index: 600; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .modal-backdrop.open { display: flex; }
+    .modal-card { background: var(--cream); border-radius: 20px; width: min(760px, 100%); max-height: 90vh; overflow-y: auto; padding: 24px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .modal-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .modal-top h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.65rem; color: var(--espresso); }
+    .admin-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .admin-tab { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--cream-card); color: var(--espresso); font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+    .admin-tab.active { background: var(--espresso); color: var(--gold-bright); border-color: var(--espresso); }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 14px; }
+    .field-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+    .field-group label { font-size: 0.78rem; font-weight: 600; color: var(--espresso); }
+    .field-group input, .field-group select, .field-group textarea { padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--cream-card); color: var(--ink); font-family: inherit; font-size: 0.86rem; }
+    .admin-product-row { background: var(--cream-card); border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .admin-product-row img { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; }
+    .status-note { font-size: 0.8rem; color: #1f5e3b; font-weight: 500; margin-top: 8px; min-height: 20px; }
+    .error-note { font-size: 0.8rem; color: #9b2c2c; font-weight: 500; margin-top: 8px; min-height: 20px; }
+
+    @media (max-width: 640px) {
+      .trust-strip { grid-template-columns: 1fr; }
+      .header-inner { padding: 10px 14px; }
+      .icon-btn span.btn-label { display: none; }
+    }
+  </style>
+</head>
+<body class="gate-locked">
+
+  <div id="intro-gate" role="dialog" aria-modal="true" aria-label="Avella Jewelry Karşılama">
+    <div class="gate-inner">
+      <div class="brand-mark">
+        <div class="brand-mark-main">
+          <span class="brand-avella">Avella</span>
+          <svg class="brand-sparkle" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path d="M18 1C19.3 11.5 24.5 16.7 35 18C24.5 19.3 19.3 24.5 18 35C16.7 24.5 11.5 19.3 1 18C11.5 16.7 16.7 11.5 18 1Z" fill="#ebd4a7"/>
+          </svg>
+        </div>
+        <span class="brand-jewelry">Jewelry</span>
+      </div>
+      <p class="gate-tagline">Zerafetin şık dokunuşu...</p>
+      <button type="button" class="gate-btn" id="enter-collection-btn">Koleksiyonu Keşfet</button>
+    </div>
+  </div>
+  <div id="storefront-shell">
+    <div class="announcement-bar" id="announcement-bar">
+      AVELLA JEWELRY'YE HOŞ GELDİNİZ · YENİ KOLEKSİYONU KEŞFEDİN
+    </div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <button type="button" class="icon-btn" id="open-menu-btn" aria-label="Menü">
+            <span style="font-size:1.15rem;">☰</span>
+            <span class="btn-label">Menü</span>
+          </button>
+        </div>
+
+        <a href="#top" class="brand-mark header-brand" style="text-decoration:none;">
+          <div class="brand-mark-main">
+            <span class="brand-avella">Avella</span>
+            <svg class="brand-sparkle" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path d="M18 1C19.3 11.5 24.5 16.7 35 18C24.5 19.3 19.3 24.5 18 35C16.7 24.5 11.5 19.3 1 18C11.5 16.7 16.7 11.5 18 1Z" fill="#2c1810"/>
+            </svg>
+          </div>
+          <span class="brand-jewelry">Jewelry</span>
+        </a>
+
+        <div class="header-right">
+          <a href="#urunler" class="icon-btn" aria-label="Koleksiyon">
+            <span>🔍</span>
+            <span class="btn-label">Koleksiyon</span>
+          </a>
+          <button type="button" class="icon-btn" id="open-cart-btn" aria-label="Sepet">
+            <span>🛍️</span>
+            <span class="btn-label">Sepet</span>
+            <span class="cart-badge" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="nav-drawer-backdrop" id="nav-drawer-backdrop">
+      <nav class="nav-drawer" aria-label="Site Menüsü">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <strong style="color:var(--espresso);letter-spacing:0.12em;font-size:0.85rem;">AVELLA JEWELRY</strong>
+          <button type="button" class="close-btn" id="close-menu-btn">✕</button>
+        </div>
+        <a href="#kategoriler" class="drawer-close-link">Kategorilerimiz</a>
+        <a href="#urunler" class="drawer-close-link">Tüm Takılar</a>
+        <a href="#sizden-gelenler" class="drawer-close-link">Sizden Gelenler</a>
+        <a href="#instagram-vitrin" class="drawer-close-link">@_avellajewelry</a>
+        <button type="button" class="drawer-link" id="drawer-open-admin">Yönetim Paneli</button>
+      </nav>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="hero-frame">
+        <img
+          id="hero-image"
+          src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1000&q=80"
+          alt="Avella Jewelry zarif takı koleksiyonu"
+        />
+      </div>
+      <div class="hero-kicker" id="hero-kicker">ZARAFETİN EN GÜZEL HALİ</div>
+      <h1 id="hero-title">Her detayda kendine özgü bir ışıltı.</h1>
+      <p id="hero-subtitle">Stilini tamamlayan zarif dokunuşları Avella Jewelry ile keşfet. Zerafetin şık dokunuşu...</p>
+      <a href="#urunler" class="btn-primary">KOLEKSİYONU KEŞFET</a>
+    </section>
+
+    <section class="section-block" id="kategoriler">
+      <div class="section-head">
+        <h2>Kategorilerimiz</h2>
+        <p>Sana özel parçaları keşfet</p>
+      </div>
+      <div class="category-grid">
+        <div class="category-card" data-category="Kolyeler">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" alt="Kolyeler" />
+          <div class="cat-title">KOLYELER</div>
+        </div>
+        <div class="category-card" data-category="Bileklikler">
+          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80" alt="Bileklikler" />
+          <div class="cat-title">BİLEKLİKLER</div>
+        </div>
+        <div class="category-card" data-category="Yüzükler">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80" alt="Yüzükler" />
+          <div class="cat-title">YÜZÜKLER</div>
+        </div>
+        <div class="category-card" data-category="Küpeler">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80" alt="Küpeler" />
+          <div class="cat-title">KÜPELER</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="urunler">
+      <div class="section-head">
+        <h2>En Çok Tercih Edilenler</h2>
+        <p>Avella'nın öne çıkan tasarımları — sepete ekle ve WhatsApp ile sipariş ver</p>
+      </div>
+
+      <div class="filter-bar" id="filter-bar">
+        <button type="button" class="filter-chip active" data-filter="Tümü">Tümü</button>
+        <button type="button" class="filter-chip" data-filter="Kolyeler">Kolyeler</button>
+        <button type="button" class="filter-chip" data-filter="Bileklikler">Bileklikler</button>
+        <button type="button" class="filter-chip" data-filter="Yüzükler">Yüzükler</button>
+        <button type="button" class="filter-chip" data-filter="Küpeler">Küpeler</button>
+      </div>
+
+      <div class="products-grid" id="products-grid"></div>
+    </section>
+
+    <section class="collection-banner">
+      <div class="eyebrow">THE AVELLA COLLECTION</div>
+      <h2>Kendine özel bir dokunuş.</h2>
+      <p>Günlük stilinden özel anlarına kadar seninle. Zerafetin şık dokunuşu...</p>
+    </section>
+
+    <section class="trust-strip" aria-label="Avella Avantajları">
+      <div class="trust-item">
+        <div class="trust-icon">🎁</div>
+        <div class="trust-label">Özenli paketleme</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🛡️</div>
+        <div class="trust-label">Güvenli ödeme</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🤍</div>
+        <div class="trust-label">Müşteri desteği</div>
+      </div>
+    </section>
+
+    <section class="section-block" id="sizden-gelenler">
+      <div class="section-head">
+        <h2>Sizden Gelenler</h2>
+      </div>
+      <div class="reviews-box">
+        <img
+          src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=80"
+          alt="Avella Jewelry özenli hediye kutusu ve takılar"
+        />
+        <div class="reviews-caption">Avella ailesinin gerçek müşteri yorumları ve deneyimleri.</div>
+      </div>
+    </section>
+
+    <section class="section-block" id="instagram-vitrin">
+      <div class="section-head">
+        <h2>Avella'yı Instagram'da Keşfet</h2>
+      </div>
+      <div class="ig-grid">
+        <a href="https://www.instagram.com/_avellajewelry/" target="_blank" rel="noopener noreferrer" class="ig-card">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" alt="Avella yüzük koleksiyonu" />
+        </a>
+        <a href="https://www.instagram.com/_avellajewelry/" target="_blank" rel="noopener noreferrer" class="ig-card">
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80" alt="Avella hediye kutusu" />
+        </a>
+        <a href="https://www.instagram.com/_avellajewelry/" target="_blank" rel="noopener noreferrer" class="ig-card">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="Avella zarif kolye" />
+        </a>
+      </div>
+      <a href="https://www.instagram.com/_avellajewelry/" target="_blank" rel="noopener noreferrer" class="ig-handle-link">
+        @_avellajewelry
+      </a>
+    </section>
+
+    <footer class="site-footer">
+      <div class="brand-mark">
+        <div class="brand-mark-main">
+          <span class="brand-avella">Avella</span>
+          <svg class="brand-sparkle" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path d="M18 1C19.3 11.5 24.5 16.7 35 18C24.5 19.3 19.3 24.5 18 35C16.7 24.5 11.5 19.3 1 18C11.5 16.7 16.7 11.5 18 1Z" fill="#ebd4a7"/>
+          </svg>
+        </div>
+        <span class="brand-jewelry">Jewelry</span>
+      </div>
+      <p class="footer-tagline">Zerafetin şık dokunuşu...</p>
+
+      <div class="footer-links">
+        <a href="#top">Hakkımızda</a>
+        <a href="https://www.instagram.com/_avellajewelry/" target="_blank" rel="noopener noreferrer">İletişim</a>
+        <a href="#urunler">Kargo ve İade</a>
+        <a href="#top">Gizlilik · Sözleşmeler</a>
+        <button type="button" id="footer-open-admin">Yönetim</button>
+      </div>
+
+      <p class="footer-copy">© 2026 Avella Jewelry (@_avellajewelry). Tüm hakları saklıdır.</p>
+    </footer>
+  </div>
+
+  <div class="cart-backdrop" id="cart-backdrop">
+    <aside class="cart-drawer" aria-label="Alışveriş Sepeti">
+      <div class="cart-header">
+        <h3>Sepetim</h3>
+        <button type="button" class="close-btn" id="close-cart-btn">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <input
+          type="text"
+          id="customer-note"
+          class="customer-note-input"
+          placeholder="Hediye notu veya eklemek istediğiniz not (isteğe bağlı)"
+        />
+        <div class="cart-total-row">
+          <span>Toplam</span>
+          <span id="cart-total">₺0</span>
+        </div>
+        <button type="button" class="whatsapp-btn" id="whatsapp-order-btn">
+          <span>WhatsApp ile Siparişi Tamamla</span>
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="modal-backdrop" id="admin-modal-backdrop">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Avella Jewelry Yönetim Paneli">
+      <div class="modal-top">
+        <h3>Avella Yönetim Paneli</h3>
+        <button type="button" class="close-btn" id="close-admin-btn">✕</button>
+      </div>
+
+      <div id="admin-login-box">
+        <div class="field-group">
+          <label for="admin-password-input">Yönetici Şifresi</label>
+          <input type="password" id="admin-password-input" placeholder="Şifrenizi girin" autocomplete="current-password" />
+        </div>
+        <button type="button" class="btn-primary" id="admin-login-btn">Giriş Yap</button>
+        <div class="error-note" id="admin-login-error"></div>
+      </div>
+
+      <div id="admin-dashboard-box" style="display:none;">
+        <div class="admin-tabs">
+          <button type="button" class="admin-tab active" data-tab="tab-products">Ürünler</button>
+          <button type="button" class="admin-tab" data-tab="tab-settings">WhatsApp & Vitrin</button>
+          <button type="button" class="admin-tab" data-tab="tab-security">Şifre Ayarı</button>
+        </div>
+
+        <div id="tab-products" class="admin-tab-panel">
+          <form id="add-product-form">
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="prod-name">Ürün Adı</label>
+                <input type="text" id="prod-name" required placeholder="Örn: İncili Zarif Kolye" />
+              </div>
+              <div class="field-group">
+                <label for="prod-category">Kategori</label>
+                <select id="prod-category">
+                  <option value="Kolyeler">Kolyeler</option>
+                  <option value="Bileklikler">Bileklikler</option>
+                  <option value="Yüzükler">Yüzükler</option>
+                  <option value="Küpeler">Küpeler</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="prod-price">Fiyat (₺)</label>
+                <input type="number" id="prod-price" required min="1" step="1" placeholder="Örn: 650" />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="prod-image-url">Görsel Bağlantısı (URL)</label>
+                <input type="text" id="prod-image-url" placeholder="https://... (veya aşağıdan dosya seç)" />
+              </div>
+              <div class="field-group">
+                <label for="prod-image-file">Cihazdan Fotoğraf Seç</label>
+                <input type="file" id="prod-image-file" accept="image/*" />
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="prod-desc">Kısa Açıklama</label>
+              <input type="text" id="prod-desc" placeholder="Örn: Günlük ve özel gün kombinlerine uyumlu zarif tasarım." />
+            </div>
+            <button type="submit" class="btn-primary">Ürünü Ekle ve Yayınla</button>
+            <div class="status-note" id="product-status-msg"></div>
+          </form>
+
+          <hr style="border:none;border-top:1px solid var(--border);margin:20px 0;" />
+          <h4 style="margin-bottom:12px;color:var(--espresso);font-size:0.95rem;">Mevcut Ürünler</h4>
+          <div id="admin-products-list"></div>
+        </div>
+
+        <div id="tab-settings" class="admin-tab-panel" style="display:none;">
+          <div class="form-grid">
+            <div class="field-group">
+              <label for="set-whatsapp">WhatsApp Sipariş Numarası</label>
+              <input type="text" id="set-whatsapp" placeholder="5465854620" />
+            </div>
+            <div class="field-group">
+              <label for="set-announcement">Üst Duyuru Metni</label>
+              <input type="text" id="set-announcement" />
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="field-group">
+              <label for="set-hero-title">Ana Başlık</label>
+              <input type="text" id="set-hero-title" />
+            </div>
+            <div class="field-group">
+              <label for="set-hero-subtitle">Alt Açıklama</label>
+              <input type="text" id="set-hero-subtitle" />
+            </div>
+          </div>
+          <button type="button" class="btn-primary" id="save-settings-btn">Ayarları Kaydet</button>
+          <div class="status-note" id="settings-status-msg"></div>
+        </div>
+
+        <div id="tab-security" class="admin-tab-panel" style="display:none;">
+          <div class="field-group">
+            <label for="new-admin-password">Yeni Yönetim Paneli Şifresi</label>
+            <input type="text" id="new-admin-password" placeholder="Yeni şifre belirleyin" />
+          </div>
+          <button type="button" class="btn-primary" id="save-password-btn">Şifreyi Güncelle</button>
+          <div class="status-note" id="password-status-msg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <script>
+    (function () {
+      const DEFAULT_PASSWORD = '201126';
+      const DEFAULT_WHATSAPP = '5465854620';
+
+      const STORAGE_KEYS = {
+        products: 'avella_jewelry_products_v1',
+        settings: 'avella_jewelry_settings_v1',
+        password: 'avella_jewelry_admin_pass_v1',
+        cart: 'avella_jewelry_cart_v1'
+      };
+
+      const DEFAULT_PRODUCTS = [
+        {
+          id: 'p-1',
+          name: 'Zarif Kolye',
+          category: 'Kolyeler',
+          price: 590,
+          description: 'Boyunda hafif duruşu ve parlak dokusuyla her stile uyum sağlar.',
+          image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'p-2',
+          name: 'Minimal Bileklik',
+          category: 'Bileklikler',
+          price: 490,
+          description: 'Tek başına veya diğer takılarla katmanlanabilen ince bileklik.',
+          image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'p-3',
+          name: 'İnci Detaylı Yüzük',
+          category: 'Yüzükler',
+          price: 450,
+          description: 'Zarif formu ile günlük kombinlere modern bir ışıltı katar.',
+          image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'p-4',
+          name: 'Damla Form Küpe',
+          category: 'Küpeler',
+          price: 520,
+          description: 'Hafif yapısı ve yumuşak kıvrımlarıyla gün boyu konfor sunar.',
+          image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=80'
+        }
+      ];
+
+      const DEFAULT_SETTINGS = {
+        whatsapp: DEFAULT_WHATSAPP,
+        announcement: "AVELLA JEWELRY'YE HOŞ GELDİNİZ · YENİ KOLEKSİYONU KEŞFEDİN",
+        heroTitle: 'Her detayda kendine özgü bir ışıltı.',
+        heroSubtitle: 'Stilini tamamlayan zarif dokunuşları Avella Jewelry ile keşfet. Zerafetin şık dokunuşu...'
+      };
+
+      function loadJSON(key, fallback) {
+        try {
+          const raw = localStorage.getItem(key);
+          return raw ? JSON.parse(raw) : fallback;
+        } catch (_) {
+          return fallback;
+        }
+      }
+
+      function saveJSON(key, value) {
+        try {
+          localStorage.setItem(key, JSON.stringify(value));
+        } catch (_) {}
+      }
+
+      let products = loadJSON(STORAGE_KEYS.products, DEFAULT_PRODUCTS);
+      let settings = { ...DEFAULT_SETTINGS, ...loadJSON(STORAGE_KEYS.settings, DEFAULT_SETTINGS) };
+      let adminPassword = localStorage.getItem(STORAGE_KEYS.password) || DEFAULT_PASSWORD;
+      let cart = loadJSON(STORAGE_KEYS.cart, []);
+      let activeCategory = 'Tümü';
+      let isAdminAuthenticated = false;
+      let uploadedImageDataUrl = '';
+
+      function formatTL(amount) {
+        const num = Number(amount) || 0;
+        return '₺' + num.toLocaleString('tr-TR');
+      }
+
+      function normalizePhoneForWhatsApp(rawPhone) {
+        let digits = String(rawPhone || DEFAULT_WHATSAPP).replace(/\D/g, '');
+        if (!digits) digits = '90' + DEFAULT_WHATSAPP;
+        if (digits.startsWith('0')) digits = '90' + digits.slice(1);
+        if (digits.length === 10) digits = '90' + digits;
+        return digits;
+      }
+
+      const introGate = document.getElementById('intro-gate');
+      const enterCollectionBtn = document.getElementById('enter-collection-btn');
+
+      enterCollectionBtn.addEventListener('click', function () {
+        document.body.classList.remove('gate-locked');
+        introGate.classList.add('gate-leaving');
+        setTimeout(function () {
+          introGate.style.display = 'none';
+        }, 680);
+      });
+
+      function applySettings() {
+        document.getElementById('announcement-bar').textContent = settings.announcement;
+        document.getElementById('hero-title').textContent = settings.heroTitle;
+        document.getElementById('hero-subtitle').textContent = settings.heroSubtitle;
+        document.getElementById('set-whatsapp').value = settings.whatsapp || DEFAULT_WHATSAPP;
+        document.getElementById('set-announcement').value = settings.announcement || '';
+        document.getElementById('set-hero-title').value = settings.heroTitle || '';
+        document.getElementById('set-hero-subtitle').value = settings.heroSubtitle || '';
+      }
+
+      function renderProducts() {
+        const grid = document.getElementById('products-grid');
+        const filtered = activeCategory === 'Tümü'
+          ? products
+          : products.filter((p) => p.category === activeCategory);
+
+        if (!filtered.length) {
+          grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--muted);">Bu kategoride henüz ürün bulunmuyor.</p>';
+          return;
+        }
+
+        grid.innerHTML = filtered.map((product) => `
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <img src="${product.image}" alt="${product.name}" loading="lazy" />
+            </div>
+            <div class="product-body">
+              <div class="product-cat">${product.category}</div>
+              <h3 class="product-name">${product.name}</h3>
+              <p class="product-desc">${product.description || ''}</p>
+              <div class="product-foot">
+                <span class="product-price">${formatTL(product.price)}</span>
+                <button type="button" class="add-cart-btn" data-add-id="${product.id}">Sepete Ekle</button>
+              </div>
+            </div>
+          </article>
+        `).join('');
+
+        grid.querySelectorAll('[data-add-id]').forEach((btn) => {
+          btn.addEventListener('click', () => addToCart(btn.getAttribute('data-add-id')));
+        });
+      }
+
+      function setActiveCategory(cat) {
+        activeCategory = cat;
+        document.querySelectorAll('.filter-chip').forEach((chip) => {
+          chip.classList.toggle('active', chip.getAttribute('data-filter') === cat);
+        });
+        document.querySelectorAll('.category-card').forEach((card) => {
+          card.classList.toggle('active', card.getAttribute('data-category') === cat);
+        });
+        renderProducts();
+      }
+
+      document.querySelectorAll('.filter-chip').forEach((chip) => {
+        chip.addEventListener('click', () => setActiveCategory(chip.getAttribute('data-filter')));
+      });
+
+      document.querySelectorAll('.category-card').forEach((card) => {
+        card.addEventListener('click', () => {
+          const cat = card.getAttribute('data-category');
+          setActiveCategory(cat);
+          document.getElementById('urunler').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      const cartBackdrop = document.getElementById('cart-backdrop');
+      const openCartBtn = document.getElementById('open-cart-btn');
+      const closeCartBtn = document.getElementById('close-cart-btn');
+
+      function openCart() {
+        renderCart();
+        cartBackdrop.classList.add('open');
+      }
+
+      function closeCart() {
+        cartBackdrop.classList.remove('open');
+      }
+
+      openCartBtn.addEventListener('click', openCart);
+      closeCartBtn.addEventListener('click', closeCart);
+      cartBackdrop.addEventListener('click', (e) => {
+        if (e.target === cartBackdrop) closeCart();
+      });
+
+      function addToCart(productId) {
+        const prod = products.find((p) => p.id === productId);
+        if (!prod) return;
+        const existing = cart.find((item) => item.id === productId);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({
+            id: prod.id,
+            name: prod.name,
+            price: Number(prod.price) || 0,
+            image: prod.image,
+            qty: 1
+          });
+        }
+        saveJSON(STORAGE_KEYS.cart, cart);
+        updateCartBadge();
+        renderCart();
+        openCart();
+      }
+
+      function updateCartBadge() {
+        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+        document.getElementById('cart-count').textContent = totalQty;
+      }
+
+      function changeQty(id, delta) {
+        const item = cart.find((i) => i.id === id);
+        if (!item) return;
+        item.qty += delta;
+        if (item.qty <= 0) {
+          cart = cart.filter((i) => i.id !== id);
+        }
+        saveJSON(STORAGE_KEYS.cart, cart);
+        updateCartBadge();
+        renderCart();
+      }
+      function renderCart() {
+        const container = document.getElementById('cart-items');
+        const totalEl = document.getElementById('cart-total');
+
+        if (!cart.length) {
+          container.innerHTML = '<p style="text-align:center;color:var(--muted);margin-top:32px;">Sepetiniz şu an boş.</p>';
+          totalEl.textContent = formatTL(0);
+          return;
+        }
+
+        container.innerHTML = cart.map((item) => `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="cart-item-info">
+              <div class="cart-item-title">${item.name}</div>
+              <div class="cart-item-price">${formatTL(item.price)}</div>
+              <div class="qty-controls">
+                <button type="button" class="qty-btn" data-qty-id="${item.id}" data-delta="-1">−</button>
+                <span style="font-size:0.86rem;font-weight:600;">${item.qty}</span>
+                <button type="button" class="qty-btn" data-qty-id="${item.id}" data-delta="1">+</button>
+              </div>
+            </div>
+            <strong style="font-size:0.9rem;color:var(--espresso);">${formatTL(item.price * item.qty)}</strong>
+          </div>
+        `).join('');
+
+        container.querySelectorAll('.qty-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            changeQty(btn.getAttribute('data-qty-id'), Number(btn.getAttribute('data-delta')));
+          });
+        });
+
+        const grandTotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+        totalEl.textContent = formatTL(grandTotal);
+      }
+
+      document.getElementById('whatsapp-order-btn').addEventListener('click', function () {
+        if (!cart.length) {
+          alert('Lütfen önce sepete en az bir ürün ekleyin.');
+          return;
+        }
+        const phone = normalizePhoneForWhatsApp(settings.whatsapp || DEFAULT_WHATSAPP);
+        const note = document.getElementById('customer-note').value.trim();
+        const lines = ['Merhaba Avella Jewelry (@_avellajewelry), sipariş vermek istiyorum:', ''];
+        let total = 0;
+
+        cart.forEach((item) => {
+          const lineTotal = item.price * item.qty;
+          total += lineTotal;
+          lines.push(`• ${item.name} (${item.qty} adet) — ${formatTL(lineTotal)}`);
+        });
+
+        lines.push('', `Toplam Tutar: ${formatTL(total)}`);
+        if (note) {
+          lines.push(`Not: ${note}`);
+        }
+
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(lines.join('\n'))}`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+
+      const navBackdrop = document.getElementById('nav-drawer-backdrop');
+      document.getElementById('open-menu-btn').addEventListener('click', () => navBackdrop.classList.add('open'));
+      document.getElementById('close-menu-btn').addEventListener('click', () => navBackdrop.classList.remove('open'));
+      navBackdrop.addEventListener('click', (e) => {
+        if (e.target === navBackdrop) navBackdrop.classList.remove('open');
+      });
+      document.querySelectorAll('.drawer-close-link').forEach((link) => {
+        link.addEventListener('click', () => navBackdrop.classList.remove('open'));
+      });
+
+      const adminBackdrop = document.getElementById('admin-modal-backdrop');
+      const adminLoginBox = document.getElementById('admin-login-box');
+      const adminDashboardBox = document.getElementById('admin-dashboard-box');
+      const adminPassInput = document.getElementById('admin-password-input');
+      const adminLoginError = document.getElementById('admin-login-error');
+
+      function openAdminModal() {
+        adminLoginError.textContent = '';
+        adminPassInput.value = '';
+        if (isAdminAuthenticated) {
+          adminLoginBox.style.display = 'none';
+          adminDashboardBox.style.display = 'block';
+          renderAdminProducts();
+        } else {
+          adminLoginBox.style.display = 'block';
+          adminDashboardBox.style.display = 'none';
+        }
+        adminBackdrop.classList.add('open');
+      }
+
+      function closeAdminModal() {
+        adminBackdrop.classList.remove('open');
+      }
+
+      document.getElementById('footer-open-admin').addEventListener('click', openAdminModal);
+      document.getElementById('drawer-open-admin').addEventListener('click', () => {
+        navBackdrop.classList.remove('open');
+        openAdminModal();
+      });
+      document.getElementById('close-admin-btn').addEventListener('click', closeAdminModal);
+      adminBackdrop.addEventListener('click', (e) => {
+        if (e.target === adminBackdrop) closeAdminModal();
+      });
+
+      document.getElementById('admin-login-btn').addEventListener('click', function () {
+        if (adminPassInput.value === adminPassword) {
+          isAdminAuthenticated = true;
+          adminLoginError.textContent = '';
+          adminLoginBox.style.display = 'none';
+          adminDashboardBox.style.display = 'block';
+          renderAdminProducts();
+        } else {
+          adminLoginError.textContent = 'Şifre hatalı. Lütfen tekrar deneyin.';
+        }
+      });
+
+      adminPassInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          document.getElementById('admin-login-btn').click();
+        }
+      });
+
+      document.querySelectorAll('.admin-tab').forEach((tabBtn) => {
+        tabBtn.addEventListener('click', () => {
+          document.querySelectorAll('.admin-tab').forEach((t) => t.classList.remove('active'));
+          tabBtn.classList.add('active');
+          const targetId = tabBtn.getAttribute('data-tab');
+          document.querySelectorAll('.admin-tab-panel').forEach((panel) => {
+            panel.style.display = panel.id === targetId ? 'block' : 'none';
+          });
+        });
+      });
+
+      document.getElementById('prod-image-file').addEventListener('change', function (e) {
+        const file = e.target.files && e.target.files[0];
+        if (!file) {
+          uploadedImageDataUrl = '';
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = function (ev) {
+          uploadedImageDataUrl = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+
+      document.getElementById('add-product-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('prod-name').value.trim();
+        const category = document.getElementById('prod-category').value;
+        const price = Number(document.getElementById('prod-price').value);
+        const urlInput = document.getElementById('prod-image-url').value.trim();
+        const desc = document.getElementById('prod-desc').value.trim();
+
+        const finalImage = uploadedImageDataUrl || urlInput || 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80';
+
+        products.unshift({
+          id: 'p-' + Date.now(),
+          name,
+          category,
+          price,
+          description: desc,
+          image: finalImage
+        });
+
+        saveJSON(STORAGE_KEYS.products, products);
+        renderProducts();
+        renderAdminProducts();
+
+        this.reset();
+        uploadedImageDataUrl = '';
+        document.getElementById('product-status-msg').textContent = 'Ürün eklendi ve vitrinde güncellendi.';
+      });
+
+      function renderAdminProducts() {
+        const listEl = document.getElementById('admin-products-list');
+        if (!products.length) {
+          listEl.innerHTML = '<p style="color:var(--muted);font-size:0.85rem;">Henüz ürün yok.</p>';
+          return;
+        }
+        listEl.innerHTML = products.map((p) => `
+          <div class="admin-product-row">
+            <img src="${p.image}" alt="${p.name}" />
+            <div style="flex:1;">
+              <div style="font-weight:600;font-size:0.88rem;color:var(--espresso);">${p.name}</div>
+              <div style="font-size:0.78rem;color:var(--muted);">${p.category} · ${formatTL(p.price)}</div>
+            </div>
+            <button type="button" class="btn-secondary" data-delete-id="${p.id}" style="padding:6px 12px;font-size:0.72rem;">Sil</button>
+          </div>
+        `).join('');
+
+        listEl.querySelectorAll('[data-delete-id]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const delId = btn.getAttribute('data-delete-id');
+            products = products.filter((item) => item.id !== delId);
+            saveJSON(STORAGE_KEYS.products, products);
+            renderProducts();
+            renderAdminProducts();
+          });
+        });
+      }
+
+      document.getElementById('save-settings-btn').addEventListener('click', function () {
+        const wpInput = document.getElementById('set-whatsapp').value.trim();
+        settings.whatsapp = (wpInput.replace(/\D/g, '') || DEFAULT_WHATSAPP);
+        settings.announcement = document.getElementById('set-announcement').value.trim() || DEFAULT_SETTINGS.announcement;
+        settings.heroTitle = document.getElementById('set-hero-title').value.trim() || DEFAULT_SETTINGS.heroTitle;
+        settings.heroSubtitle = document.getElementById('set-hero-subtitle').value.trim() || DEFAULT_SETTINGS.heroSubtitle;
+
+        saveJSON(STORAGE_KEYS.settings, settings);
+        applySettings();
+        document.getElementById('settings-status-msg').textContent = `Ayarlar kaydedildi (WhatsApp: ${settings.whatsapp}).`;
+      });
+
+      document.getElementById('save-password-btn').addEventListener('click', function () {
+        const nextPass = document.getElementById('new-admin-password').value.trim();
+        if (!nextPass) {
+          document.getElementById('password-status-msg').textContent = 'Lütfen geçerli bir şifre girin.';
+          return;
+        }
+        adminPassword = nextPass;
+        localStorage.setItem(STORAGE_KEYS.password, adminPassword);
+        document.getElementById('new-admin-password').value = '';
+        document.getElementById('password-status-msg').textContent = 'Yönetim paneli şifresi güncellendi.';
+      });
+
+      applySettings();
+      renderProducts();
+      updateCartBadge();
+    })();
+  </script>
+</body>
+</html>
