@@ -318,7 +318,8 @@
     .admin-product-row { background: var(--cream-card); border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
     .admin-product-row img { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; }
     .status-note { font-size: 0.8rem; color: #1f5e3b; font-weight: 500; margin-top: 8px; min-height: 20px; }
-    .error-note { font-size: 0.8rem; color: #9b2c2c; font-weight: 500; margin-top: 8px; min-height: 20px; }
+    .error-note { font-size: 0.8rem; color: #9b2c2c; font-weight: 500; margin-top: 8px;
+      min-height: 20px; }
 
     @media (max-width: 640px) {
       .trust-strip { grid-template-columns: 1fr; }
@@ -395,7 +396,6 @@
         <button type="button" class="drawer-link" id="drawer-open-admin">Yönetim Paneli</button>
       </nav>
     </div>
-
     <section class="hero" id="top">
       <div class="hero-frame">
         <img
@@ -434,7 +434,6 @@
         </div>
       </div>
     </section>
-
     <section class="section-block" id="urunler">
       <div class="section-head">
         <h2>En Çok Tercih Edilenler</h2>
@@ -472,7 +471,6 @@
         <div class="trust-label">Müşteri desteği</div>
       </div>
     </section>
-
     <section class="section-block" id="sizden-gelenler">
       <div class="section-head">
         <h2>Sizden Gelenler</h2>
@@ -529,7 +527,6 @@
       <p class="footer-copy">© 2026 Avella Jewelry (@_avellajewelry). Tüm hakları saklıdır.</p>
     </footer>
   </div>
-
   <div class="cart-backdrop" id="cart-backdrop">
     <aside class="cart-drawer" aria-label="Alışveriş Sepeti">
       <div class="cart-header">
@@ -658,7 +655,7 @@
       </div>
     </div>
   </div>
-   <script>
+  <script>
     (function () {
       const DEFAULT_PASSWORD = '201126';
       const DEFAULT_WHATSAPP = '5465854620';
@@ -824,7 +821,6 @@
           document.getElementById('urunler').scrollIntoView({ behavior: 'smooth' });
         });
       });
-
       const cartBackdrop = document.getElementById('cart-backdrop');
       const openCartBtn = document.getElementById('open-cart-btn');
       const closeCartBtn = document.getElementById('close-cart-btn');
@@ -881,6 +877,7 @@
         updateCartBadge();
         renderCart();
       }
+
       function renderCart() {
         const container = document.getElementById('cart-items');
         const totalEl = document.getElementById('cart-total');
@@ -941,7 +938,6 @@
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(lines.join('\n'))}`;
         window.open(url, '_blank', 'noopener,noreferrer');
       });
-
       const navBackdrop = document.getElementById('nav-drawer-backdrop');
       document.getElementById('open-menu-btn').addEventListener('click', () => navBackdrop.classList.add('open'));
       document.getElementById('close-menu-btn').addEventListener('click', () => navBackdrop.classList.remove('open'));
@@ -1060,9 +1056,7 @@
       function renderAdminProducts() {
         const listEl = document.getElementById('admin-products-list');
         if (!products.length) {
-          listEl.innerHTML = '<p style="color:var(--muted);font-size:0.85rem;">Henüz ürün yok.</p>';
-          return;
-        }
+          listEl.innerHTML = '<p style="color:var(--muted);font-size:0.85
         listEl.innerHTML = products.map((p) => `
           <div class="admin-product-row">
             <img src="${p.image}" alt="${p.name}" />
